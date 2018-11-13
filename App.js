@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import AAAAAA from '@kiwicom/orbit-components/lib/AAAAAAA';
+import Button from '@kiwicom/orbit-components/src/Button';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -19,13 +19,28 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+ onClick = () => {
+    console.log("clicked");
+  }
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
-        <AAAAAA>Stuff</AAAAAA>
+        <Button size="small" type="primary" onClick={this.onClick}>Small</Button>
+        <Button size="normal" type="secondary" onClick={this.onClick}>Normal</Button>
+        <Button size="large" type="info" onClick={this.onClick}>Large</Button>
+        <Button size="small" type="success" onClick={this.onClick} icon={<Text>I</Text>}>Left Icon</Button>
+        <Button size="small" type="warning" onClick={this.onClick} iconRight={<Text>R</Text>}>Right Icon</Button>
+        <Button size="small" type="critical" onClick={this.onClick} icon={<Text>I</Text>} iconRight={<Text>R</Text>}>Left and right icons</Button>
+        <Button size="small" type="facebook" onClick={this.onClick} circled >Circled</Button>
+        <Button size="small" type="google" onClick={this.onClick}>Hello people</Button>
+        <Button size="small" type="white" onClick={this.onClick}>Hello people</Button>
+        <Button size="small" type="primary" bordered onClick={this.onClick}>Small bordered</Button>
+        <Button size="normal" type="secondary" bordered onClick={this.onClick}>Normal bordered</Button>
+        <Button size="large" type="info" bordered onClick={this.onClick}>Large bordered</Button>
+        <Button size="large" type="info" bordered block onClick={this.onClick}>Large info bordered block</Button>
       </View>
     );
   }
